@@ -1,0 +1,14 @@
+{
+  "extras": [
+    "lazyvim.plugins.extras.editor.harpoon2",
+    "lazyvim.plugins.extras.editor.inc-rename",
+    "lazyvim.plugins.extras.lang.php",
+    "lazyvim.plugins.extras.lang.svelte",
+    "lazyvim.plugins.extras.lang.typescript",
+    "lazyvim.plugins.extras.ui.edgy"
+  ],
+  "news": {
+    "NEWS.md": "6520"
+  },
+  "version": 6
+}
