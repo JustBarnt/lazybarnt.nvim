@@ -1,5 +1,9 @@
 return {
   {
+    "mfussenegger/nvim-lint",
+    enabled = false,
+  },
+  {
     "folke/noice.nvim",
     event = "VeryLazy",
     tag = "v4.4.7",
