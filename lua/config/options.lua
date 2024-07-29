@@ -3,6 +3,10 @@
 -- Add any additional options here
 vim.g.lazyvim_picker = "telescope"
 vim.g.lazyvim_php_lsp = "intelephense"
+vim.g.lazyvim_statuscolumn = {
+  folds_open = true,
+  folds_githl = true,
+}
 
 local opt = vim.opt
 
@@ -11,4 +15,4 @@ opt.relativenumber = true
 opt.cmdheight = 0
 opt.scrolloff = 16
 opt.wrap = false
-opt.laststatus = 3
+opt.modeline = false
