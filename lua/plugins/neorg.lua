@@ -12,6 +12,7 @@ return {
       require("neorg").setup({
         load = {
           ["core.defaults"] = {},
+          ["core.neorgcmd"] = {},
           ["core.ui"] = {},
           ["core.itero"] = {},
           ["core.concealer"] = {},
