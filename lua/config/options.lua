@@ -17,3 +17,4 @@ opt.cmdheight = 0
 opt.scrolloff = 16
 opt.wrap = false
 opt.modeline = false
+opt.guicursor = "n-r-cr:hor20,i-ci:ver25,v-ve:block-blinkwait175-blinkoff150-blinkon175"
