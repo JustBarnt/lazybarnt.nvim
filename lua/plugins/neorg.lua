@@ -19,7 +19,6 @@ return {
           ["core.completion"] = {
             config = {
               engine = "nvim-cmp",
-              name = "[Neorg]",
             },
           },
         },
