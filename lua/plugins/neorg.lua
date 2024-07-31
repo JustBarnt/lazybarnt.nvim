@@ -9,7 +9,20 @@ return {
     end,
     version = "*",
     config = function()
-      require("neorg").setup()
+      require("neorg").setup({
+        load = {
+          ["core.defaults"] = {},
+          ["core.ui"] = {},
+          ["core.itero"] = {},
+          ["core.concealer"] = {},
+          ["core.completion"] = {
+            config = {
+              engine = "nvim-cmp",
+              name = "[Neorg]",
+            },
+          },
+        },
+      })
     end,
   },
 }
