@@ -1,8 +1,9 @@
 return {
   { "nvim-telescope/telescope-fzf-native.nvim", enabled = false },
+  { "nvim-telescope/telescope.nvim", enabled = false },
   {
     "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
+    -- commit = "3b1600d",
     enabled = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
