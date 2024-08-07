@@ -1,6 +1,6 @@
 return {
   {
-    "justbarnt/eldritch.nvim",
+    "eldritch-theme/eldritch.nvim",
     lazy = false,
     priority = 1000,
     opts = function()

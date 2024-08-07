@@ -8,7 +8,7 @@
   "conform.nvim": { "branch": "master", "commit": "2122fe2ff01e9a542fc358ee9398ce2cbddf345d" },
   "dashboard-nvim": { "branch": "master", "commit": "fabf5feec96185817c732d47d363f34034212685" },
   "dressing.nvim": { "branch": "master", "commit": "6741f1062d3dc6e4755367a7e9b347b553623f04" },
-  "eldritch.nvim": { "branch": "master", "commit": "56f45d32c020139ef30fff0ba142e4ce02886385" },
+  "eldritch.nvim": { "branch": "master", "commit": "48788ef2f7be7e86b0a57ef87f1a96bc18e24b8b" },
   "flash.nvim": { "branch": "main", "commit": "34c7be146a91fec3555c33fe89c7d643f6ef5cf1" },
   "friendly-snippets": { "branch": "main", "commit": "00ebcaa159e817150bd83bfe2d51fa3b3377d5c4" },
   "gitsigns.nvim": { "branch": "main", "commit": "562dc47189ad3c8696dbf460d38603a74d544849" },
