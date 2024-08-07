@@ -73,6 +73,12 @@ return {
           hl.TelescopeMatching = {
             fg = c.purple,
           }
+          hl.NeoTreeTitleBar = {
+            link = "NeoTreeNormalNC",
+          }
+          hl.NeoTreeFloatBorder = {
+            link = "NeoTreeNormalNC",
+          }
         end,
       }
     end,
