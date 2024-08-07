@@ -6,6 +6,7 @@ return {
     opts = function()
       ---@module "eldritch"
       return {
+        transparent = true,
         styles = {
           functions = { bold = true },
           keywords = { bold = true },
