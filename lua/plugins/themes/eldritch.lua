@@ -1,6 +1,6 @@
 return {
   {
-    "eldritch-theme/eldritch.nvim",
+    "justbarnt/eldritch.nvim",
     lazy = false,
     priority = 1000,
     opts = function()
@@ -73,12 +73,12 @@ return {
           hl.TelescopeMatching = {
             fg = c.purple,
           }
-          hl.NeoTreeTitleBar = {
-            link = "NeoTreeNormalNC",
-          }
-          hl.NeoTreeFloatBorder = {
-            link = "NeoTreeNormalNC",
-          }
+          -- hl.NeoTreeTitleBar = {
+          --   link = "NeoTreeNormalNC",
+          -- }
+          -- hl.NeoTreeFloatBorder = {
+          --   link = "NeoTreeNormalNC",
+          -- }
         end,
       }
     end,
