@@ -6,8 +6,7 @@ return {
       local presets = require("markview.presets")
       require("markview").setup({
         modes = { "n", "i", "no", "c" },
-        hybrid_modes = { "i" },
-        headings = presets.headings.glow_labels,
+        hybrid_modes = { "i", "n" },
 
         -- This is nice to have
         callbacks = {
