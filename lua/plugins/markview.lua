@@ -26,6 +26,10 @@ return {
             value = { fg = "#a6e3a1" },
           },
         },
+        code_blocks = {
+          style = "minimal",
+          icons = true,
+        },
         headings = {
           enable = true,
           shift_width = 0,
