@@ -1,7 +1,7 @@
 return {
   {
     "ptdewey/pendulum-nvim",
-    enabled = true,
+    branch = "dev",
     opts = {
       log_file = vim.fn.expand("~/.pendulum/time_log.csv"),
       timeout_len = 300,
