@@ -17,4 +17,3 @@ opt.cmdheight = 0
 opt.scrolloff = 16
 opt.wrap = false
 opt.modeline = false
-opt.guicursor = ""
