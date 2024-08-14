@@ -5,6 +5,8 @@ local alpha = function()
   return string.format("%x", math.floor((255 * vim.g.transparency) or 0.8))
 end
 
+vim.cmd([[highlight Normal guibg=#212337]])
+
 -- g.neovide_transparency = 0.8
 -- g.transparency = 0.8
 g.neovide_padding_top = 2
