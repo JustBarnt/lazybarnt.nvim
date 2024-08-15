@@ -10,7 +10,6 @@ vim.g.lazyvim_statuscolumn = {
 
 local opt = vim.opt
 
-opt.shell = "nu.exe"
 opt.number = true
 opt.relativenumber = true
 opt.cmdheight = 0
