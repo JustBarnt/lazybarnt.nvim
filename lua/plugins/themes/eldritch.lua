@@ -27,7 +27,6 @@ return {
             bg = prompt,
             fg = c.fg,
           }
-
           hl.TelescopeNormal = {
             bg = c.bg_dark,
             fg = c.fg,
@@ -73,12 +72,6 @@ return {
           hl.TelescopeMatching = {
             fg = c.purple,
           }
-          -- hl.NeoTreeTitleBar = {
-          --   link = "NeoTreeNormalNC",
-          -- }
-          -- hl.NeoTreeFloatBorder = {
-          --   link = "NeoTreeNormalNC",
-          -- }
         end,
       }
     end,

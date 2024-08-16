@@ -125,20 +125,25 @@ return {
         end
       end
 
+      local telescope = require("telescope.config").pickers
+
       local opts = {
         defaults = {
-          layout_strategy = "vertical",
-          sorting_strategy = "ascending",
-          results_title = "",
           prompt_prefix = " ",
           selection_caret = " ",
-          entry_prefix = "   ",
-          layout_config = {
-            prompt_position = "top",
-            width = 0.5,
-            height = 0.5,
-          },
-          path_display = { filename_first = { reverse_directories = false } },
+          get_selection_window = function()
+            local wins = vim.api.nvim_list_wins()
+            table.insert(wins, 1, vim.api.nvim_get_current_win())
+            for _, win in ipairs(wins) do
+              local buf = vim.api.nvim_win_get_buf(win)
+              if vim.bo[buf].buftype == "" then
+                return win
+              end
+            end
+            return 0
+          end,
+          path_display = "filename_first",
+          -- path_display = { filename_first = { reverse_directories = false } },
           mappings = {
             i = {
               ["<C-k>"] = actions.move_selection_previous,
@@ -157,17 +162,6 @@ return {
               ["q"] = actions.close,
             },
           },
-          get_selection_window = function()
-            local wins = vim.api.nvim_list_wins()
-            table.insert(wins, 1, vim.api.nvim_get_current_wint())
-            for _, win in ipairs(wins) do
-              local buf = vim.api.nvim_win_get_buf(win)
-              if vim.bo[buf].buftype == "" then
-                return win
-              end
-            end
-            return 0
-          end,
         },
         extensions = {
           live_grep_args = {
@@ -177,8 +171,7 @@ return {
         },
         pickers = {
           find_files = {
-            find_command = find_command,
-            hidden = true,
+            find_command = find_command(),
           },
         },
       }
