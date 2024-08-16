@@ -1,7 +1,7 @@
 local api = vim.api
 local string_utils = require("utils.strings")
 
-vim.api.nvim_create_user_command("DecrementNumbers", function(opts)
+api.nvim_create_user_command("DecrementNumbers", function(opts)
   local args = vim.split(opts.args, " ")
 
   if #args ~= 2 then
