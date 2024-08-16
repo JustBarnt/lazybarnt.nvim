@@ -1,7 +1,8 @@
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
-vim.g.lazyvim_picker = "telescope"
+vim.g.bigfile_size = 1024 * 1024 * 5
+vim.g.vim.g.lazyvim_picker = "telescope"
 vim.g.lazyvim_php_lsp = "intelephense"
 vim.g.lazyvim_statuscolumn = {
   folds_open = true,
@@ -10,9 +11,7 @@ vim.g.lazyvim_statuscolumn = {
 
 local opt = vim.opt
 
-opt.number = true
-opt.relativenumber = true
+opt.autowrite = false
 opt.cmdheight = 0
 opt.scrolloff = 16
-opt.wrap = false
 opt.modeline = false
