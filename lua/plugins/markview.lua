@@ -33,18 +33,6 @@ return {
         headings = {
           enable = true,
           shift_width = 0,
-
-          heading_1 = {
-            style = "label",
-
-            padding_left = " ",
-            padding_right = " ",
-
-            corner_right = "",
-            corner_right_hl = "Heading1Corner",
-
-            hl = "Heading1",
-          },
         },
         horizontal_rules = {
           parts = {

@@ -10,11 +10,13 @@ api.nvim_create_autocmd({ "FileType" }, {
   desc = "Enable spell checking for certain filetypes",
   callback = function()
     set.number = false
+    set.relativenumber = false
     set.conceallevel = 3
     set.concealcursor = "nc"
     set.linebreak = true
     set.breakat = " ^I!@*-+;:,./?"
     set.breakindent = true
+    set.wrap = true
   end,
 })
 

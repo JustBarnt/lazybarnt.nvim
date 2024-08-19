@@ -11,11 +11,14 @@ return {
           vertical_line = "│",
           left_top = "╭",
           left_bottom = "╰",
-          right_arrow = "─",
+          right_arrow = "",
+        },
+        style = {
+          vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("@keyword")), "fg", "gui"),
         },
       },
       indent = {
-        enable = true,
+        enable = false,
         chars = {
           "│",
         },

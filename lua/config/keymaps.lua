@@ -2,4 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+require("utils.init").wezterm()
+
 vim.keymap.set("n", "q", "<NOP>")
