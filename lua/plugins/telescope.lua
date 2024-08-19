@@ -95,7 +95,7 @@ return {
             "fd",
             "--type=f",
             "--color=never",
-            "--path-separator=/",
+            "--path-separator=\\",
             "--hidden",
             "--no-ignore",
             "--exclude",
@@ -120,7 +120,7 @@ return {
             "--glob",
             "!{.git/*,.svelte-kit/*,target/*,node_modules/*}, lua/user/*",
             "--path-separator",
-            "/",
+            "\\",
           }
         end
       end
@@ -142,8 +142,7 @@ return {
             end
             return 0
           end,
-          path_display = "filename_first",
-          -- path_display = { filename_first = { reverse_directories = false } },
+          path_display = { filename_first = { reverse_directories = false } },
           mappings = {
             i = {
               ["<C-k>"] = actions.move_selection_previous,
@@ -161,12 +160,6 @@ return {
             n = {
               ["q"] = actions.close,
             },
-          },
-        },
-        extensions = {
-          live_grep_args = {
-            previewer = true,
-            prompt_title = "Global Search (w/args)",
           },
         },
         pickers = {

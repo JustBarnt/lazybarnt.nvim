@@ -15,3 +15,4 @@ opt.autowrite = false
 opt.cmdheight = 0
 opt.scrolloff = 16
 opt.modeline = false
+opt.swapfile = false
