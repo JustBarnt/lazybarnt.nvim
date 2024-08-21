@@ -10,6 +10,7 @@ vim.g.lazyvim_statuscolumn = {
 
 local opt = vim.opt
 
+opt.shortmess = "ltToOCFIc"
 opt.autowrite = false
 opt.cmdheight = 0
 opt.scrolloff = 16

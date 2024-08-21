@@ -35,7 +35,73 @@ return {
     --   },
     -- }
 
-    -- cmp.setup.cmdline(cmp_utils.cmdline_search.type, cmp_utils.cmdline_search.opts)
-    -- cmp.setup.cmdline(cmp_utils.cmdline.type, cmp_utils.cmdline.opts)
+    cmp.setup.cmdline({ "/", "?" }, {
+      sources = cmp.config.sources({
+        { { name = "buffer" } },
+      }),
+      view = {
+        entries = {
+          name = "wildmenu",
+          separator = " | ",
+        },
+      },
+    })
+
+    cmp.setup.cmdline({ ":" }, {
+      -- mapping = cmp.mapping.preset.cmdline({
+      --   ["<C-j>"] = require("cmp").mapping(
+      --     require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Replace }),
+      --     { "c" }
+      --   ),
+      --   ["<C-k>"] = require("cmp").mapping(
+      --     require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior.Replace }),
+      --     { "c" }
+      --   ),
+      --   ["<C-z>"] = {
+      --     c = function()
+      --       if cmp.visible() then
+      --         cmp.select_next_item()
+      --       else
+      --         cmp.complete()
+      --       end
+      --     end,
+      --   },
+      --   ["<Tab>"] = {
+      --     c = function()
+      --       if cmp.visible() then
+      --         cmp.select_next_item()
+      --       else
+      --         cmp.complete()
+      --       end
+      --     end,
+      --   },
+      --   ["<S-Tab>"] = {
+      --     c = function()
+      --       if cmp.visible() then
+      --         cmp.select_prev_item()
+      --       else
+      --         cmp.complete()
+      --       end
+      --     end,
+      --   },
+      --   ["<C-e>"] = {
+      --     c = cmp.mapping.abort(),
+      --   },
+      --   ["<C-y>"] = {
+      --     c = cmp.mapping.confirm({ select = false }),
+      --   },
+      -- }),
+      sources = cmp.config.sources({
+        {
+          { name = "cmdline" },
+          { name = "path" },
+        },
+      }),
+      view = {
+        entries = {
+          name = "custom",
+        },
+      },
+    })
   end,
 }
