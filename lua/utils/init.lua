@@ -1,5 +1,7 @@
 local M = {}
 
+---@param data any
+---@return string encoded
 function M.base64(data)
   data = tostring(data)
   local bit = require("bit")
@@ -25,6 +27,8 @@ function M.base64(data)
   return b64
 end
 
+---@param key string
+---@param value any
 function M.set_user_var(key, value)
   io.write(string.format("\027]1337;SetUserVar=%s=%s\a", key, M.base64(value)))
 end
@@ -37,6 +41,7 @@ function M.wezterm()
     l = "Right",
   }
 
+  ---@param dir string
   local function navigate(dir)
     return function()
       local win = vim.api.nvim_get_current_win()
