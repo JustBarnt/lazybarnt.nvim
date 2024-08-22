@@ -3,5 +3,3 @@
 -- Add any additional keymaps here
 
 require("utils.init").wezterm()
-
-vim.keymap.set("n", "q", "<NOP>")
