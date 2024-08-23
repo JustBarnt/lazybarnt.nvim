@@ -1,5 +1,6 @@
 return {
-  "Rics-Dev/project-explorer.nvim",
+  dev = true,
+  "justbarnt/project-explorer.nvim",
   dependencies = { "nvim-telescope/telescope.nvim" },
   opts = function(_, opts)
     ---@param directories string[]
