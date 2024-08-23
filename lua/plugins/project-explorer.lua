@@ -20,6 +20,7 @@ return {
 
     return {
       paths = { "D:/Commsys", "D:/Github", "D:/nvim-plugins" }, --project_paths({ "D:/Commsys", "D:/Github", "D:/nvim-plugins" }),
+      command_pattern = "fd . %s -td -H -E '.git' --min-depth %d --max-depth %d",
       newProjectPath = "d:/github", --{ "d:/github/", "d:/nvim/" },
       file_explorer = function(dir) --custom file explorer set by user
         vim.cmd("Neotree close")
