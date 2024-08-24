@@ -8,21 +8,11 @@ return {
         enabled = true,
       },
       buffers = {
-        left = {
-          enabled = true,
-          scratchPad = {
-            enabled = true,
-            pathToFile = "~/.neorg/Work/todo.norg",
-          },
-          bo = {
-            filetype = "norg",
-          },
-        },
         right = {
           enabled = true,
           scratchPad = {
             enabled = true,
-            pathToFile = "~/.neorg/scratchPad.md",
+            pathToFile = "~/AppData/Local/Temp/thoughts.md",
           },
           bo = {
             filetype = "md",
@@ -30,8 +20,5 @@ return {
         },
       },
     },
-    -- config = function(_, opts)
-    --   require("no-neck-pain").setup(opts)
-    -- end,
   },
 }

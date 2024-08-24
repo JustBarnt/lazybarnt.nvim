@@ -2,7 +2,6 @@
 return {
   {
     "mikavilpas/yazi.nvim",
-    enabled = vim.g.neovide,
     event = "VeryLazy",
     keys = {
       {

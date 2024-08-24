@@ -10,11 +10,9 @@ vim.g.lazyvim_statuscolumn = {
 
 local opt = vim.opt
 
-opt.shortmess = "ltToOCFIc"
 opt.autowrite = false
 opt.cmdheight = 0
 opt.scrolloff = 16
-opt.modeline = false
 opt.swapfile = false
 
 if vim.fn.has("win32") == 1 then
