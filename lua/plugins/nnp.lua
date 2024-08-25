@@ -8,6 +8,7 @@ return {
         enabled = true,
       },
       buffers = {
+        left = { enabled = false },
         right = {
           enabled = true,
           scratchPad = {
