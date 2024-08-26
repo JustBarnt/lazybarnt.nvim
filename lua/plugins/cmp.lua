@@ -19,7 +19,7 @@ return {
         { "i", "c" }
       ),
       ["<C-Space>"] = cmp.mapping.complete({}),
-      ["<CR>"] = cmp.mapping(cmp.mapping.confirm({ behavior = cmp.SelectBehavior.Replace, select = true })),
+      -- ["<CR>"] = cmp.mapping(cmp.mapping.confirm({ behavior = cmp.SelectBehavior.Replace, select = true })),
     })
 
     table.insert(opts.sources, { name = "lazydev", group_index = 0 })
