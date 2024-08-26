@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 vim.g.bigfile_size = 1024 * 1024 * 5
 vim.g.lazyvim_picker = "telescope"
 vim.g.lazyvim_php_lsp = "intelephense"
+vim.g.trouble_lualine = false
 vim.g.lazyvim_statuscolumn = {
   folds_open = true,
   folds_githl = true,
