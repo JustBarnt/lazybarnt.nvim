@@ -19,3 +19,11 @@ opt.swapfile = false
 if vim.fn.has("win32") == 1 then
   LazyVim.terminal.setup("nu")
 end
+
+if vim.fn.executable("nu") == 1 then
+  vim.filetype.add({
+    extension = {
+      nuon = "nu",
+    },
+  })
+end
