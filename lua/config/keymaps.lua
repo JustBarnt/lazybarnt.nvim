@@ -3,3 +3,6 @@
 -- Add any additional keymaps here
 
 require("utils.init").wezterm()
+local strings = require("utils.strings")
+
+vim.keymap.set({ "n", "v" }, "<leader>rw", strings.replace_word_instance_under_cursor)
