@@ -5,4 +5,9 @@
 require("utils.init").wezterm()
 local strings = require("utils.strings")
 
-vim.keymap.set({ "n", "v" }, "<leader>rw", strings.replace_word_instance_under_cursor)
+vim.keymap.set(
+  { "n", "v" },
+  "<leader>rw",
+  strings.replace_word_under_cursor,
+  { desc = "Replace `<cword>` instance in buffer" }
+)
