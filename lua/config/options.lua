@@ -11,6 +11,7 @@ vim.g.lazyvim_statuscolumn = {
 
 local opt = vim.opt
 
+opt.keywordprg = ":help"
 opt.autowrite = false
 opt.cmdheight = 0
 opt.scrolloff = 16
