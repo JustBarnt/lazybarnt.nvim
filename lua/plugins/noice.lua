@@ -1,6 +1,6 @@
 return {
-  "justbarnt/noice.nvim",
-  dev = true,
+  "folke/noice.nvim",
+  -- dev = true,
   event = "VeryLazy",
   opts = {
     lsp = {

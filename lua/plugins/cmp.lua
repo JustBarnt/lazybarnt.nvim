@@ -2,8 +2,8 @@
 
 return {
   {
-    "yioneko/nvim-cmp",
-    branch = "perf",
+    "justbarnt/nvim-cmp",
+    dev = true,
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-cmdline",
@@ -33,6 +33,10 @@ return {
         },
       })
 
+      -- cmp.event:on("resized", function()
+      --   cmp.close()
+      -- end)
+
       cmp.setup.cmdline({ ":" }, {
         mapping = require("cmp").mapping.preset.cmdline({
           ["<C-j>"] = require("cmp").mapping(
@@ -48,9 +52,22 @@ return {
           { name = "cmdline" },
           { name = "path" },
         }),
+        window = {
+          completion = {
+            border = "solid",
+            winhighlight = "Normal:TelescopeNormal,FloatBorder:TelescopeNormal,Search:None",
+            col_offset = -4,
+            side_padding = 4,
+            width = 60,
+            row = 7,
+            col = (vim.o.columns - 62) / 2,
+          },
+        },
         view = {
           entries = {
             name = "custom",
+            follow_cursor = false,
+            selection_order = "near_cursor",
           },
         },
       })
@@ -100,6 +117,7 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "lazydev", group_index = 0 },
+          { name = "cmdline" },
           { name = "path", option = { keyword_pattern = "[[/|\\]]" } },
         }, {
           { name = "buffer", option = { keyword_lenth = 4 } },
