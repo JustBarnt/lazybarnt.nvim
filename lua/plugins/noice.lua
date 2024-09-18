@@ -1,7 +1,7 @@
 return {
-  "folke/noice.nvim",
+  "justbarnt/noice.nvim",
+  dev = true,
   event = "VeryLazy",
-  tag = "v4.4.7",
   opts = {
     lsp = {
       hover = {
