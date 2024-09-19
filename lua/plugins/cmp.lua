@@ -3,7 +3,6 @@
 return {
   {
     "justbarnt/nvim-cmp",
-    dev = true,
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-cmdline",
@@ -33,37 +32,47 @@ return {
         },
       })
 
-      -- cmp.setup.cmdline({ ":" }, {
-      --   mapping = require("cmp").mapping.preset.cmdline({
-      --     ["<C-j>"] = require("cmp").mapping(
-      --       require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Replace }),
-      --       { "c" }
-      --     ),
-      --     ["<C-k>"] = require("cmp").mapping(
-      --       require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior.Replace }),
-      --       { "c" }
-      --     ),
-      --   }),
-      --   sources = cmp.config.sources({
-      --     { name = "cmdline" },
-      --     { name = "path" },
-      --   }),
-      --   window = {
-      --     completion = {
-      --       border = "solid",
-      --       winhighlight = "Normal:TelescopeNormal,FloatBorder:TelescopeNormal,Search:None",
-      --       col_offset = -4,
-      --       side_padding = 4,
-      --     },
-      --   },
-      --   view = {
-      --     entries = {
-      --       name = "custom",
-      --       follow_cursor = false,
-      --       selection_order = "near_cursor",
-      --     },
-      --   },
-      -- })
+      local api = require("cmp.utils.api")
+      local cmdline = require("noice.ui.cmdline")
+      --TODO: FINISH. Currently trying to see if I can for nvim-cmp to set its possition how noice does.
+      -- = 38 - (cmdline.last():length() - cmdline.last().offset)
+      -- local cmdline_start = byte - (M.last():length() - M.last().offset)
+      -- local a = print(require("noice.config").ns)
+      -- print(48 - (require("noice.ui.cmdline").last():length() - require("noice.ui.cmdline").last().offset))
+      -- print( vim.api.nvim_buf_get_extmark_by_id( vim.api.nvim_win_get_buf(require("noice.ui.cmdline").win()), vim.api.nvim_get_namespaces()["noice"], require("noice.config").ns, {}))
+      -- print(vim.inspect(vim.fn.screenpos(require("noice.ui.cmdline").win(), 1, 38)))
+
+      cmp.setup.cmdline({ ":" }, {
+        mapping = require("cmp").mapping.preset.cmdline({
+          ["<C-j>"] = require("cmp").mapping(
+            require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Replace }),
+            { "c" }
+          ),
+          ["<C-k>"] = require("cmp").mapping(
+            require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior.Replace }),
+            { "c" }
+          ),
+        }),
+        sources = cmp.config.sources({
+          { name = "cmdline" },
+          { name = "path" },
+        }),
+        window = {
+          completion = {
+            border = "solid",
+            winhighlight = "Normal:TelescopeNormal,FloatBorder:TelescopeNormal,Search:None",
+            -- col_offset = -4,
+            -- side_padding = 4,
+          },
+        },
+        view = {
+          entries = {
+            name = "custom",
+            follow_cursor = false,
+            selection_order = "near_cursor",
+          },
+        },
+      })
 
       return {
         auto_brackets = {},

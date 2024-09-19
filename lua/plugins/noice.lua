@@ -1,8 +1,7 @@
 ---@module 'noice'
 
 return {
-  "folke/noice.nvim",
-  -- dev = true,
+  "justbarnt/noice.nvim",
   event = "VeryLazy",
   opts = {
     lsp = {
@@ -23,7 +22,7 @@ return {
       lsp_doc_border = true,
     },
     popupmenu = {
-      backend = "nui",
+      backend = "cmp",
     },
     routes = {
       {
