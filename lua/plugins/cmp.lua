@@ -33,44 +33,37 @@ return {
         },
       })
 
-      -- cmp.event:on("resized", function()
-      --   cmp.close()
-      -- end)
-
-      cmp.setup.cmdline({ ":" }, {
-        mapping = require("cmp").mapping.preset.cmdline({
-          ["<C-j>"] = require("cmp").mapping(
-            require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Replace }),
-            { "c" }
-          ),
-          ["<C-k>"] = require("cmp").mapping(
-            require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior.Replace }),
-            { "c" }
-          ),
-        }),
-        sources = cmp.config.sources({
-          { name = "cmdline" },
-          { name = "path" },
-        }),
-        window = {
-          completion = {
-            border = "solid",
-            winhighlight = "Normal:TelescopeNormal,FloatBorder:TelescopeNormal,Search:None",
-            col_offset = -4,
-            side_padding = 4,
-            width = 60,
-            row = 7,
-            col = (vim.o.columns - 62) / 2,
-          },
-        },
-        view = {
-          entries = {
-            name = "custom",
-            follow_cursor = false,
-            selection_order = "near_cursor",
-          },
-        },
-      })
+      -- cmp.setup.cmdline({ ":" }, {
+      --   mapping = require("cmp").mapping.preset.cmdline({
+      --     ["<C-j>"] = require("cmp").mapping(
+      --       require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Replace }),
+      --       { "c" }
+      --     ),
+      --     ["<C-k>"] = require("cmp").mapping(
+      --       require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior.Replace }),
+      --       { "c" }
+      --     ),
+      --   }),
+      --   sources = cmp.config.sources({
+      --     { name = "cmdline" },
+      --     { name = "path" },
+      --   }),
+      --   window = {
+      --     completion = {
+      --       border = "solid",
+      --       winhighlight = "Normal:TelescopeNormal,FloatBorder:TelescopeNormal,Search:None",
+      --       col_offset = -4,
+      --       side_padding = 4,
+      --     },
+      --   },
+      --   view = {
+      --     entries = {
+      --       name = "custom",
+      --       follow_cursor = false,
+      --       selection_order = "near_cursor",
+      --     },
+      --   },
+      -- })
 
       return {
         auto_brackets = {},
