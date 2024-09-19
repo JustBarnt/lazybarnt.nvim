@@ -13,14 +13,6 @@ return {
         ["vim.lsp.util.stylize_markdown"] = true,
         ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
       },
-      signature = {
-        enabled = false,
-        opts = {
-          size = {
-            max_height = vim.api.nvim_win_get_height(0) / 2,
-          },
-        },
-      },
     },
     presets = {
       bottom_search = true,
@@ -40,6 +32,23 @@ return {
           find = "written",
         },
         opts = { skip = true },
+      },
+      {
+        opts = { skip = true },
+        filter = {
+          any = {
+            {
+              error = true,
+              find = "E486: Pattern not found",
+            },
+            {
+              event = "msg_show",
+              cond = function(msg)
+                return msg:content():sub(1, 1) == "/"
+              end,
+            },
+          },
+        },
       },
       {
         filter = {
