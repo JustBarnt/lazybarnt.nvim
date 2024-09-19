@@ -35,6 +35,8 @@ return {
       local api = require("cmp.utils.api")
       local cmdline = require("noice.ui.cmdline")
       --TODO: FINISH. Currently trying to see if I can for nvim-cmp to set its possition how noice does.
+      -- Try running this code during an event via autocmd during cmdline enter
+      -- there we can attempt to re-adjust the popup window
       -- = 38 - (cmdline.last():length() - cmdline.last().offset)
       -- local cmdline_start = byte - (M.last():length() - M.last().offset)
       -- local a = print(require("noice.config").ns)
