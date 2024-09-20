@@ -21,7 +21,7 @@ M.selection = function()
   local ex, err = load(code)()
 
   if ex then
-    print(ex())
+    ex()
   elseif err then
     print("Error in Lua:" .. err)
   end

@@ -32,17 +32,26 @@ return {
         },
       })
 
-      local api = require("cmp.utils.api")
-      local cmdline = require("noice.ui.cmdline")
-      --TODO: FINISH. Currently trying to see if I can for nvim-cmp to set its possition how noice does.
-      -- Try running this code during an event via autocmd during cmdline enter
-      -- there we can attempt to re-adjust the popup window
-      -- = 38 - (cmdline.last():length() - cmdline.last().offset)
-      -- local cmdline_start = byte - (M.last():length() - M.last().offset)
-      -- local a = print(require("noice.config").ns)
-      -- print(48 - (require("noice.ui.cmdline").last():length() - require("noice.ui.cmdline").last().offset))
-      -- print( vim.api.nvim_buf_get_extmark_by_id( vim.api.nvim_win_get_buf(require("noice.ui.cmdline").win()), vim.api.nvim_get_namespaces()["noice"], require("noice.config").ns, {}))
-      -- print(vim.inspect(vim.fn.screenpos(require("noice.ui.cmdline").win(), 1, 38)))
+      --HACK: Maybe hack? Not sure. But this will allow the menu to shift over to the left by resetting the 'col' property the menu
+      --      uses to the position itself.
+      --TODO: Move this autocmd into `nvim-cmp` as I believe it belongs there
+      vim.api.nvim_create_autocmd("CmdlineEnter", {
+        group = vim.api.nvim_create_augroup("cmdlime_menu", { clear = true }),
+        callback = function(_)
+          local old_values = require("cmp.config").cmdline[":"].window.completion or {}
+          local config = require("cmp.config").cmdline[":"]
+
+          ---@type cmp.CompletionWindowOptions
+          local new_values = vim.tbl_deep_extend("force", old_values, {
+            col = (vim.o.columns - 62) / 2,
+          })
+
+          config.window.completion = new_values
+
+          -- Re-setup the cmdline to apply the new col values
+          require("cmp").setup.cmdline({ ":" }, config)
+        end,
+      })
 
       cmp.setup.cmdline({ ":" }, {
         mapping = require("cmp").mapping.preset.cmdline({
@@ -63,8 +72,9 @@ return {
           completion = {
             border = "solid",
             winhighlight = "Normal:TelescopeNormal,FloatBorder:TelescopeNormal,Search:None",
-            -- col_offset = -4,
-            -- side_padding = 4,
+            width = 60,
+            row = 7,
+            col = (vim.o.columns - 62) / 2,
           },
         },
         view = {
