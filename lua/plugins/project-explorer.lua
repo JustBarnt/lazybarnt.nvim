@@ -1,5 +1,5 @@
 return {
-  dev = true,
+  dev = false,
   "justbarnt/project-explorer.nvim",
   dependencies = { "nvim-telescope/telescope.nvim" },
   opts = function(_, opts)

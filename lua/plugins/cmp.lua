@@ -4,6 +4,7 @@ return {
   {
     "justbarnt/nvim-cmp",
     event = "InsertEnter",
+    dev = false,
     dependencies = {
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-buffer",
@@ -65,10 +66,9 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "lazydev", group_index = 0 },
-          { name = "cmdline" },
-          { name = "path", option = { keyword_pattern = "[[/|\\]]" } },
         }, {
-          { name = "buffer", option = { keyword_lenth = 4 } },
+          { name = "path", option = { keyword_pattern = "[[/|\\]]" } },
+          { name = "buffer", option = { keyword_lenth = 4, max_item_count = 4 } },
         }),
         sorting = defaults.sorting,
       }
