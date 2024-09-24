@@ -120,6 +120,12 @@ Plugin Manager
 - [ ] Lazy loading plugins (read how LazyVim achieves this)
 - [ ] Handle large files by disabling most plugins
 
+#### Utils
+
+- [ ] Ability to inverse booleans/null|undefined/0-1
+- [ ] Create an editor config file when accessing a recognized root_dir that doesn't have one
+- [ ] Unit tests
+
 ### Treesitter
 
 Setup text objects for around function, inside function, etc
