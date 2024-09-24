@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 ---@class LazyPluginSpec
 local spec = {
   dev = {
-    path = "D:/nvim-plugins/",
+    path = "D:/personal/nvim-plugins/",
     patterns = { "justbarnt" },
     fallback = true,
   },
