@@ -6,7 +6,6 @@ return {
     ---@param directories string[]
     ---@return string[] dirs
     local project_paths = function(directories)
-      local path_exists = vim.fn.isdirectory(directory)
       local valid_paths = {}
 
       for _, dir in ipairs(directories) do
@@ -19,7 +18,13 @@ return {
     end
 
     return {
-      paths = { "D:/Commsys", "D:/Github", "D:/nvim-plugins" }, --project_paths({ "D:/Commsys", "D:/Github", "D:/nvim-plugins" }),
+      paths = project_paths({
+        "D:/Commsys/CLIPS",
+        "D:/CommSys/Utilities",
+        "D:/Commsys/ConnectCIC",
+        "D:/Personal/Github",
+        "D:/Personal/nvim-plugins",
+      }),
       command_pattern = "fd . %s -td --path-separator=/ --min-depth %d --max-depth %d",
       newProjectPath = "d:/github", --{ "d:/github/", "d:/nvim/" },
       file_explorer = function(dir) --custom file explorer set by user
