@@ -4,7 +4,6 @@ return {
   {
     "justbarnt/nvim-cmp",
     event = "InsertEnter",
-    dev = false,
     dependencies = {
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-buffer",
@@ -54,10 +53,10 @@ return {
           end,
         },
         mapping = cmp.mapping.preset.insert({
-          ["<C-j>"] = cmp.mapping.select_next_item(),
-          ["<C-k>"] = cmp.mapping.select_prev_item(),
-          ["<S-j>"] = cmp.mapping.scroll_docs(-4),
-          ["<S-k>"] = cmp.mapping.scroll_docs(4),
+          ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+          ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+          ["<Up>"] = cmp.mapping.scroll_docs(-4),
+          ["<Down>"] = cmp.mapping.scroll_docs(4),
           ["<C-e>"] = cmp.mapping.abort(),
           ["<C-y>"] = cmp.mapping(cmp.mapping.confirm({ select = true }), { "i", "c" }),
           ["<C-Space>"] = cmp.mapping.complete({}),
@@ -66,9 +65,10 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "lazydev", group_index = 0 },
-        }, {
+          { name = "cmdline" },
           { name = "path", option = { keyword_pattern = "[[/|\\]]" } },
-          { name = "buffer", option = { keyword_lenth = 4, max_item_count = 4 } },
+        }, {
+          { name = "buffer", option = { keyword_lenth = 4 } },
         }),
         sorting = defaults.sorting,
       }
