@@ -17,6 +17,8 @@ end_of_line = crlf
 ##########################################
 # File Extension Settings
 ##########################################
+[*.lua]
+indent_size = 2
 
 # Visual Studio Solution Files
 [*.sln]
