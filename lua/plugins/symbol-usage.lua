@@ -74,7 +74,6 @@ return {
         SymbolKind.Class,
         SymbolKind.Constructor,
         SymbolKind.Enum,
-        SymbolKind.Field,
         SymbolKind.Function,
         SymbolKind.Interface,
         SymbolKind.Method,
