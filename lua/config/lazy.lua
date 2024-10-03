@@ -23,7 +23,7 @@ local spec = {
   },
   spec = {
     -- add LazyVim and import its plugins
-    { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "eldritch" } },
+    { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "tokyonight-moon" } },
     -- import/override with your plugins
     { import = "plugins" },
     { import = "plugins.lang" },
