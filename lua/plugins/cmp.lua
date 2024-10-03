@@ -9,68 +9,34 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-nvim-lsp",
+      "L3MON4D3/LuaSnip",
+      "onsails/lspkind.nvim",
     },
-    opts = function(_, opts)
-      vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
+    opts = function()
       local cmp = require("cmp")
-      local defaults = require("cmp.config.default")()
       local auto_select = true
-
-      local filter_text = function(entry, _)
-        return require("cmp.types").lsp.CompletionItemKind[entry:get_kind()] ~= "Text"
-      end
+      local cmp_conf = require("utils.cmp")
 
       return {
         auto_brackets = {},
         completion = {
           completeopt = "menu,menuone,noinsert" .. (auto_select and "" or ",noselect"),
         },
-        experimental = {
-          ghost_text = {
-            enabled = false,
-            hl_group = "CmpGhostText",
+        experimental = { ghost_text = { enabled = false } },
+        formatting = cmp_conf.formatting,
+        mapping = cmp_conf.mapping,
+        preselect = auto_select and cmp.PreselectMode.Item or cmp.PreselectMode.None,
+        sources = cmp_conf.sources,
+        sorting = cmp_conf.sort,
+        view = {
+          entries = { name = "custom", selection_order = "near_cursor" },
+        },
+        window = {
+          completion = {
+            col_offset = -3,
+            side_padding = 0,
           },
         },
-        formatting = {
-          format = function(entry, item)
-            local icons = LazyVim.config.icons.kinds
-            if icons[item.kind] then
-              item.kind = icons[item.kind] .. item.kind
-            end
-
-            local widths = {
-              abbr = vim.g.cmp_widths and vim.g.cmp_widths.abbr or 40,
-              menu = vim.g.cmp_widths and vim.g.cmp_widths.menu or 30,
-            }
-
-            for key, width in pairs(widths) do
-              if item[key] and vim.fn.strdisplaywidth(item[key]) > width then
-                item[key] = vim.fn.strcharpart(item[key], 0, width - 1) .. "…"
-              end
-            end
-
-            return item
-          end,
-        },
-        mapping = cmp.mapping.preset.insert({
-          ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-          ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-          ["<Up>"] = cmp.mapping.scroll_docs(-4),
-          ["<Down>"] = cmp.mapping.scroll_docs(4),
-          ["<C-e>"] = cmp.mapping.abort(),
-          ["<C-y>"] = cmp.mapping(cmp.mapping.confirm({ select = true }), { "i", "c" }),
-          ["<C-Space>"] = cmp.mapping.complete({}),
-        }),
-        preselect = auto_select and cmp.PreselectMode.Item or cmp.PreselectMode.None,
-        sources = cmp.config.sources({
-          { name = "nvim_lsp" },
-          { name = "lazydev", group_index = 0 },
-          { name = "cmdline" },
-          { name = "path", option = { keyword_pattern = "[[/|\\]]" } },
-        }, {
-          { name = "buffer", option = { keyword_lenth = 4 } },
-        }),
-        sorting = defaults.sorting,
       }
     end,
     config = function(_, opts)
@@ -141,29 +107,6 @@ return {
           },
         },
       })
-    end,
-  },
-  -- Snippets
-  {
-    "nvim-cmp",
-    dependencies = {
-      {
-        "garymjr/nvim-snippets",
-        opts = {
-          friendly_snippets = true,
-        },
-        dependencies = { "rafamadriz/friendly-snippets" },
-      },
-    },
-    opts = function(_, opts)
-      opts.snippet = {
-        expand = function(item)
-          return LazyVim.cmp.expand(item.body)
-        end,
-      }
-      if LazyVim.has("nvim-snippets") then
-        table.insert(opts.sources, { name = "snippets" })
-      end
     end,
   },
   -- Tailwindcss
