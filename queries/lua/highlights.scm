@@ -7,8 +7,8 @@
   (#eq? @namespace.builtin "NvVim"))
 
 ; Operators
-[
-  "and"
-  "not"
-  "or"
-] @keyword.debug
+; [
+;   "and"
+;   "not"
+;   "or"
+; ] @keyword.debug

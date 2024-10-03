@@ -20,7 +20,7 @@ return {
             opts.capabiltites or {}
           ),
         },
-        filewatching = true,
+        filewatching = false,
       }
       return config
     end,
