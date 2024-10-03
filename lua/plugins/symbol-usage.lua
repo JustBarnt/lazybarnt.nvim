@@ -72,12 +72,10 @@ return {
       hl = { link = "SymbolUsageCustom" },
       kinds = {
         SymbolKind.Class,
-        SymbolKind.Constructor,
         SymbolKind.Enum,
         SymbolKind.Function,
         SymbolKind.Interface,
         SymbolKind.Method,
-        SymbolKind.Namespace,
         SymbolKind.Property,
         SymbolKind.Struct,
         SymbolKind.TypeParameter,
