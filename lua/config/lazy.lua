@@ -17,13 +17,13 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
----@class LazyPluginSpec
 local spec = {
   dev = {
     path = "D:/personal/nvim-plugins/",
     patterns = { "justbarnt" },
     fallback = true,
   },
+  ---@Class LazySpecPlugin
   spec = {
     "nvim-lua/plenary.nvim",
     {
@@ -56,6 +56,7 @@ local spec = {
     { "garymjr/nvim-snippets", enabled = false },
     { "nvim-lualine/lualine.nvim", enabled = false },
     { "akinsho/bufferline.nvim", enabled = false },
+    { "nvimdev/dashboard-nvim", enabled = false },
     -- [[DISABLES]]
   },
   defaults = {
