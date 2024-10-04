@@ -1,8 +1,7 @@
 ---@module 'noice'
 
 return {
-  "justbarnt/noice.nvim",
-  dev = false,
+  "folke/noice.nvim",
   event = "VeryLazy",
   opts = {
     lsp = {
