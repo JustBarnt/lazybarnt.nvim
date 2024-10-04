@@ -15,10 +15,7 @@ M.ui = {
   --   style = "default",
   -- },
   telescope = { style = "borderless" },
-  tabufline = {
-    lazyload = true,
-    order = { "treeOffset", "buffers", "tabs", "btns" },
-  },
+  tabufline = { enabled = false },
 }
 
 M.nvdash = {
