@@ -41,6 +41,7 @@ return {
     end,
     config = function(_, opts)
       local cmp = require("cmp")
+      opts = vim.tbl_deep_extend("force", opts, require("nvchad.cmp"))
       cmp.setup(opts)
       cmp.setup.cmdline({ "/", "?" }, {
         sources = cmp.config.sources({

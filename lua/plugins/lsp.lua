@@ -2,6 +2,29 @@
 return {
   -- lsp servers
   {
+    "neovim/nvim-lspconfig",
+    opts = function(_, opts)
+      local lua = {
+        lua_ls = {
+          settings = {
+            Lua = {
+              diagnostics = {
+                globals = { "vim" },
+              },
+              workspace = {
+                library = {
+                  vim.fn.stdpath("data") .. "/lazy/ui/nvchad_types",
+                },
+                maxPreload = 100000,
+                preloadFileSize = 10000,
+              },
+            },
+          },
+        },
+      }
+    end,
+  },
+  {
     "mfussenegger/nvim-lint",
     opts = function(_, opts)
       table.insert(opts.linters_by_ft, { lua = { "selene", "luacheck" } })
