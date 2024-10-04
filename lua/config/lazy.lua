@@ -26,14 +26,15 @@ local spec = {
   },
   spec = {
     "nvim-lua/plenary.nvim",
-
     {
       "nvchad/ui",
+      dependencies = {
+        "nvchad/volt",
+      },
       config = function()
         require("nvchad")
       end,
     },
-
     {
       "nvchad/base46",
       lazy = true,
