@@ -1,6 +1,7 @@
 return {
   dev = false,
-  "justbarnt/project-explorer.nvim",
+  -- "justbarnt/project-explorer.nvim",
+  "Rics-Dev/project-explorer.nvim",
   dependencies = { "nvim-telescope/telescope.nvim" },
   opts = function(_, opts)
     ---@param directories string[]
@@ -24,6 +25,8 @@ return {
         "D:/Commsys/ConnectCIC",
         "D:/Personal/Github",
         "D:/Personal/nvim-plugins",
+        "D:/Github",
+        "D:/nvim-plugins",
       }),
       command_pattern = "fd . %s -td --path-separator=/ --min-depth %d --max-depth %d",
       newProjectPath = "d:/github", --{ "d:/github/", "d:/nvim/" },
