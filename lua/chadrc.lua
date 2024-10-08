@@ -3,6 +3,7 @@ local M = {}
 
 M.base46 = {
   theme = "chadracula-evondev",
+  integrations = { "telescope", "cmp", "trouble" },
 }
 
 M.ui = {
@@ -10,10 +11,6 @@ M.ui = {
     theme = "default",
     separator_style = "default",
   },
-  -- cmp = {
-  --   lspkind_text = true,
-  --   style = "default",
-  -- },
   telescope = { style = "borderless" },
   tabufline = { enabled = false },
 }

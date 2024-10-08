@@ -43,7 +43,7 @@ local spec = {
       end,
     },
     -- add LazyVim and import its plugins
-    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "nvchad" } },
     -- import/override with your plugins
     { import = "plugins" },
     { import = "plugins.lang" },
@@ -94,7 +94,6 @@ local spec = {
 
 require("lazy").setup(spec)
 
--- put this after lazy setup
 for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
   dofile(vim.g.base46_cache .. v)
 end
