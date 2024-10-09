@@ -20,7 +20,8 @@ M.nvdash = {
 }
 
 M.term = {
-  winopts = { number = false, relativenumber = true },
+  winopts = { number = false, relativenumber = false },
+  sizes = { vs = 0.5 },
   float = {
     relative = "editor",
     row = 0.3,
