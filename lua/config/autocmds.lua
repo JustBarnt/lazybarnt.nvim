@@ -27,11 +27,24 @@ api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
-api.nvim_create_autocmd({ "InsertLeave", "InsertEnter" }, {
+api.nvim_create_autocmd({ "LspAttach" }, {
   pattern = "*",
-  callback = function()
-    if vim.api.nvim_buf_line_count(0) > 10000 then
-      vim.cmd("TSToggle highlight")
+  desc = "Disables Treesitter highlights in LSP's that support full sematnic tokens or in files that are larger than 5mb or 10k lines",
+  callback = function(ev)
+    local id = ev.data.client_id
+    local client = vim.lsp.get_client_by_id(id) or nil
+    local has_full_semantic_tokens = client
+      and client.server_capabilities.semanticTokensProvider
+      and client.server_capabilities.semanticTokensProvider.full
+
+    if has_full_semantic_tokens then
+      vim.cmd([[TSBufDisable highlight]])
+    else
+      if vim.api.nvim_buf_line_count(ev.buf) > 10000 then
+        vim.cmd([[TSBufDisable highlight]])
+      else
+        vim.cmd([[TSBufEnable highlight]])
+      end
     end
   end,
 })
