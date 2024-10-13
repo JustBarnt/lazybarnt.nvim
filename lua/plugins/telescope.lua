@@ -95,7 +95,7 @@ return {
             "fd",
             "--type=f",
             "--color=never",
-            "--path-separator=\\",
+            LazyVim.is_win() and "--path-separator=\\",
             "--hidden",
             "--no-ignore",
             "--exclude",
