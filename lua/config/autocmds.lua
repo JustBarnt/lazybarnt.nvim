@@ -33,14 +33,22 @@ api.nvim_create_autocmd({ "LspAttach" }, {
   callback = function(ev)
     local id = ev.data.client_id
     local client = vim.lsp.get_client_by_id(id) or nil
+    local buf = ev.buf
+    local filename = vim.api.nvim_buf_get_name(buf)
     local has_full_semantic_tokens = client
       and client.server_capabilities.semanticTokensProvider
       and client.server_capabilities.semanticTokensProvider.full
 
-    if has_full_semantic_tokens then
+    if filename:match("%.svelte$") then
+      if vim.api.nvim_buf_line_count(buf) > 10000 or vim.fn.getfsize(filename) > 5 * 1024 * 1024 then
+        vim.cmd([[TSBufDisable highlight]])
+      else
+        vim.cmd([[TSBufEnable highlight]])
+      end
+    elseif has_full_semantic_tokens then
       vim.cmd([[TSBufDisable highlight]])
     else
-      if vim.api.nvim_buf_line_count(ev.buf) > 10000 then
+      if vim.api.nvim_buf_line_count(buf) > 10000 then
         vim.cmd([[TSBufDisable highlight]])
       else
         vim.cmd([[TSBufEnable highlight]])
