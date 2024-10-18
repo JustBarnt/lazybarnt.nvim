@@ -3,7 +3,7 @@ return {
     "MoaidHathot/dotnet.nvim",
     cmd = "DotnetUI",
     keys = {
-      { "<leader>/", mode = { "n", "v" } },
+      -- { "<leader>/", mode = { "n", "v" } },
       { "<leader>na", "<cmd>:DotnetUI new_item<CR>", { desc = ".NET new item", silent = true } },
       { "<leader>nb", "<cmd>:DotnetUI file bootstrap<CR>", { desc = ".NET bootstrap class", silent = true } },
       {
