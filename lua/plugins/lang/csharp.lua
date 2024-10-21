@@ -16,7 +16,7 @@ return {
             "force",
             require("lang.lsp.csharp_capabilities"),
             vim.lsp.protocol.make_client_capabilities(),
-            has_cmp and cmp_nvim_lsp.default_capabilities() or {},
+            {},
             opts.capabiltites or {}
           ),
         },

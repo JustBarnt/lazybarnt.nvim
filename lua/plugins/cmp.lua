@@ -4,6 +4,7 @@ return {
   {
     "justbarnt/nvim-cmp",
     event = "InsertEnter",
+    enabled = false,
     dependencies = {
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-buffer",
@@ -98,7 +99,7 @@ return {
         fields = fields,
       }
 
-      cmp.setup(opts)
+      -- cmp.setup(opts)
       cmp.setup.cmdline({ "/", "?" }, {
         sources = cmp.config.sources({
           { name = "buffer" },

@@ -1,8 +1,8 @@
 return {
   "saghen/blink.cmp",
-  event = "BufReadPre",
-  enabled = false,
-  version = "v0.3.1", -- REQUIRED release tag to download pre-built binaries
+  lazy = false,
+  dev = true,
+  build = "cargo build --release",
   ---@module "blink.cmp"
   ---@type blink.cmp.Config
   opts = {
@@ -25,12 +25,18 @@ return {
       },
     },
     highlight = { use_nvim_cmp_as_default = true },
+    fuzzy = {
+      prebuiltBinaries = {
+        download = false,
+        forceVersion = "v0.3.*",
+      },
+    },
     keymap = {
       show = "<C-space>",
       hide = "<C-e>",
       accept = "<C-y>",
-      select_prev = { "<C-j>" },
-      select_next = { "<C-k>" },
+      select_prev = { "<C-k>" },
+      select_next = { "<C-j>" },
 
       show_documentation = "<C-space>",
       hide_documentation = "<C-space>",
