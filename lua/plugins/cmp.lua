@@ -4,7 +4,6 @@ return {
   {
     "justbarnt/nvim-cmp",
     event = "InsertEnter",
-    enabled = false,
     dependencies = {
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-buffer",

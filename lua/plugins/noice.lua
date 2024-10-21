@@ -14,7 +14,7 @@ return {
       override = {
         ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
         ["vim.lsp.util.stylize_markdown"] = true,
-        ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+        ["cmp.entry.get_documentation"] = false, -- requires hrsh7th/nvim-cmp
       },
     },
     presets = {
@@ -82,8 +82,8 @@ return {
         },
         win_options = {
           winhighlight = {
-            Normal = "TelescopePromptNormal",
-            FloatBorder = "TelescopePromptNormal",
+            Normal = "CmpPmenu",
+            FloatBorder = "CmpBorder",
           },
         },
       },
@@ -103,8 +103,8 @@ return {
         },
         win_options = {
           winhighlight = {
-            Normal = "TelescopeNormal",
-            FloatBorder = "TelescopeNormal",
+            Normal = "CmpPmenu",
+            FloatBorder = "CmpBorder",
           },
         },
       },

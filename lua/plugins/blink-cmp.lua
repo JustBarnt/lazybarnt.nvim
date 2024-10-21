@@ -53,7 +53,6 @@ return {
         highlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None,FloatBorder:CmpBorder",
         selection = "preselect",
         draw = "reversed",
-        cycle = { from_top = false },
       },
       documentation = {
         border = "none",
