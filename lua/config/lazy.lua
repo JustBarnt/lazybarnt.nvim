@@ -18,11 +18,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local spec = {
-  --[[ dev = {
+  dev = {
     path = "D:/personal/nvim-plugins/",
     patterns = { "justbarnt" },
     fallback = true,
-  }, ]]
+  },
   ---@Class LazySpecPlugin
   spec = {
     "nvim-lua/plenary.nvim",
@@ -43,7 +43,7 @@ local spec = {
       end,
     },
     -- add LazyVim and import its plugins
-    { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "nvchad" }, dev = false },
+    { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "nvchad" } },
     -- import/override with your plugins
     { import = "plugins" },
     { import = "plugins.lang" },
