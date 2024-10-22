@@ -23,7 +23,6 @@ return {
           fallback_for = { "LSP" }, -- PENDING https://github.com/Saghen/blink.cmp/issues/122
         },
       },
-       },
     },
     highlight = { use_nvim_cmp_as_default = true },
     fuzzy = {
