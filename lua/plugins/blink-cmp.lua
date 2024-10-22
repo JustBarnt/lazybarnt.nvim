@@ -1,11 +1,13 @@
 return {
   "saghen/blink.cmp",
+  enabled = false,
   lazy = false,
   dev = true,
   build = "cargo build --release",
   ---@module "blink.cmp"
   ---@type blink.cmp.Config
   opts = {
+    blocked_filetypes = { "cs" },
     sources = {
       providers = {
         { "blink.cmp.sources.lsp", name = "LSP" },

@@ -98,8 +98,7 @@ return {
         end,
         fields = fields,
       }
-
-      -- cmp.setup(opts)
+      cmp.setup(opts)
       cmp.setup.cmdline({ "/", "?" }, {
         sources = cmp.config.sources({
           { name = "buffer" },
