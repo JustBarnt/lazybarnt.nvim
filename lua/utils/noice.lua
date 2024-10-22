@@ -124,7 +124,7 @@ M.views = {
     win_options = {
       winhighlight = {
         Normal = "TelescopePromptNormal",
-        FloatBorder = "CmpBorder",
+        FloatBorder = "BlinkCmpMenuBorder",
       },
     },
   },

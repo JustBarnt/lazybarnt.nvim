@@ -24,6 +24,11 @@ return {
         },
       },
     },
+    trigger = {
+      signature_help = {
+        enabled = true,
+      },
+    },
     highlight = { use_nvim_cmp_as_default = true },
     fuzzy = {
       prebuiltBinaries = {
@@ -37,7 +42,6 @@ return {
       accept = "<C-y>",
       select_prev = { "<C-k>" },
       select_next = { "<C-j>" },
-
       show_documentation = "<C-space>",
       hide_documentation = "<C-space>",
       scroll_documentation_up = "<Up>",
@@ -50,15 +54,19 @@ return {
     windows = {
       autocomplete = {
         border = "rounded",
-        highlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None,FloatBorder:CmpBorder",
-        selection = "preselect",
+        highlight = "Normal:Pmenu,CursorLine:PmenuSel,Search:None,FloatBorder:Pmenu",
+        selection = "auto_insert",
         draw = "reversed",
       },
       documentation = {
         border = "rounded",
-        winhighlight = "Normal:CmpDoc,FloatBorder:CmpDocBorder",
+        winhighlight = "Normal:Pmenu,FloatBorder:Pmenu",
         auto_show = true,
         auto_show_delay_ms = 250,
+      },
+      signature_help = {
+        border = "padded",
+        winhighlight = "Normal:NormalFloat,CursorLine:PmenuSel,Search:None,FloatBorder:Pmenu",
       },
     },
   },
