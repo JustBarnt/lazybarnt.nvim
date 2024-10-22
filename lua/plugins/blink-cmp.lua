@@ -49,13 +49,13 @@ return {
     nerd_font_variant = "mono",
     windows = {
       autocomplete = {
-        border = "none",
+        border = "rounded",
         highlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None,FloatBorder:CmpBorder",
         selection = "preselect",
         draw = "reversed",
       },
       documentation = {
-        border = "none",
+        border = "rounded",
         winhighlight = "Normal:CmpDoc,FloatBorder:CmpDocBorder",
         auto_show = true,
         auto_show_delay_ms = 250,
