@@ -44,6 +44,7 @@ return {
       local cmp_ui = require("nvconfig").ui.cmp
       local cmp_style = cmp_ui.style
       local format_kk = require("nvchad.cmp.format")
+      local cmp_conf = require("utils.cmp")
 
       local atom_styled = cmp_style == "atom" or cmp_style == "atom_colored"
       local fields = (atom_styled or cmp_ui.icons_left) and { "kind", "abbr", "menu" } or { "abbr", "kind", "menu" }
@@ -103,6 +104,7 @@ return {
         sources = cmp.config.sources({
           { name = "buffer" },
         }),
+        mapping = cmp_conf.mapping,
         view = {
           entries = {
             name = "wildmenu",
