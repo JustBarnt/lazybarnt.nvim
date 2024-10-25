@@ -1,38 +1,11 @@
 return {
   "saghen/blink.cmp",
-  enabled = false,
-  lazy = false,
-  dev = true,
-  build = "cargo build --release",
+  enabled = true,
+  version = "v0.4.*",
   ---@module "blink.cmp"
   ---@type blink.cmp.Config
   opts = {
-    blocked_filetypes = { "cs" },
-    sources = {
-      providers = {
-        { "blink.cmp.sources.lsp", name = "LSP" },
-        { "blink.cmp.sources.snippets", name = "Snippets", score_offset = -1 },
-        {
-          "blink.cmp.sources.path",
-          name = "Path",
-          score_offset = 3,
-          opts = { get_cwd = vim.uv.cwd },
-        },
-        {
-          "blink.cmp.sources.buffer",
-          name = "Buffer",
-          keyword_length = 3,
-          fallback_for = { "LSP" }, -- PENDING https://github.com/Saghen/blink.cmp/issues/122
-        },
-      },
-    },
     highlight = { use_nvim_cmp_as_default = true },
-    fuzzy = {
-      prebuiltBinaries = {
-        download = false,
-        forceVersion = "v0.3.*",
-      },
-    },
     keymap = {
       show = "<C-space>",
       hide = "<C-e>",
