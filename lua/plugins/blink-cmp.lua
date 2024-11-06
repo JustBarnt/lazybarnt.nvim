@@ -1,24 +1,17 @@
 return {
   "saghen/blink.cmp",
   enabled = true,
-  version = "v0.4.*",
+  version = "*",
   ---@module "blink.cmp"
   ---@type blink.cmp.Config
   opts = {
     highlight = { use_nvim_cmp_as_default = true },
     keymap = {
-      show = "<C-space>",
-      hide = "<C-e>",
-      accept = "<C-y>",
-      select_prev = { "<C-k>" },
-      select_next = { "<C-j>" },
-      show_documentation = "<C-space>",
-      hide_documentation = "<C-space>",
-      scroll_documentation_up = "<Up>",
-      scroll_documentation_down = "<Down>",
-
-      snippet_forward = "<Tab>",
-      snippet_backward = "<S-Tab>",
+      preset = "default",
+      ["<C-j>"] = { "select_next", "accept" },
+      ["<C-k>"] = { "select_prev", "accept" },
+      ["Up"] = { "scroll_documentation_up" },
+      ["Down"] = { "scroll_documentation_down" },
     },
     nerd_font_variant = "mono",
     windows = {
