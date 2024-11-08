@@ -2,7 +2,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "tokyonight",
+  theme = "doomchad",
   integrations = { "telescope", "cmp", "trouble" },
 }
 
