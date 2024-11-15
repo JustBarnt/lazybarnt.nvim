@@ -12,7 +12,6 @@ return {
       end,
     })
   end,
-  keys = noice_cfg.keys,
   ---@type fun(_, opts: NoiceConfig): NoiceConfig
   opts = function(_, opts)
     ---@type NoiceConfig

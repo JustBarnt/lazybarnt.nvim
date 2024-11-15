@@ -1,9 +1,5 @@
 local M = {}
 
-M.keys = {
-  { "<Esc>", vim.cmd.NoiceDismiss, desc = "󰎟 Clear Notifications" },
-}
-
 ---@param bufnr number
 M.highlights_in_stacktrace = function(bufnr)
   vim.defer_fn(function()

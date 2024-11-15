@@ -11,6 +11,11 @@ vim.keymap.set("n", "<leader>el", eval.line, { desc = "Evaluate line as Lua", si
 vim.keymap.set("v", "<leader>es", eval.selection, { desc = "Evaluate selection as Lua", silent = true })
 vim.keymap.set("n", "<leader>ed", eval.doc, { desc = "Evaluate document as Lua", silent = true })
 
+vim.keymap.set("n", "<Esc>", function()
+  vim.cmd("NoiceDismiss")
+  vim.cmd("nohlsearch")
+end, { desc = "Clear Notifications and Hl Searches" })
+
 vim.keymap.set(
   { "n", "v" },
   "<leader>rw",
