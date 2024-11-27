@@ -21,7 +21,9 @@ return {
           border = "rounded",
           highlight = "Normal:Pmenu,CursorLine:PmenuSel,Search:None,FloatBorder:Pmenu",
           selection = "preselect",
-          draw = "reversed",
+          draw = {
+            columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
+          },
         },
         documentation = {
           border = "rounded",
