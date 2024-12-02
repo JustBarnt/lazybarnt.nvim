@@ -29,6 +29,20 @@ api.nvim_create_autocmd({ "FileType" }, {
 
 api.nvim_create_autocmd({ "LspAttach" }, {
   pattern = "*",
+  desc = "Changes folding methods based on if the LSP Supports it",
+  callback = function(ev)
+    local id = ev.data.client_id
+    local client = vim.lsp.get_client_by_id(id) or nil
+    local buf = ev.buf
+
+    if client and client:supports_method("textDocument/foldingRange", buf) then
+      vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+    end
+  end,
+})
+
+api.nvim_create_autocmd({ "LspAttach" }, {
+  pattern = "*",
   desc = "Disables Treesitter highlights in LSP's that support full sematnic tokens or in files that are larger than 5mb or 10k lines",
   callback = function(ev)
     local id = ev.data.client_id
