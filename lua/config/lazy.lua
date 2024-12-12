@@ -30,6 +30,7 @@ local spec = {
     { import = "plugins.lang" },
 
     --[[DISABLES]]
+    { "lukas-reineke/indent-blankline.nvim", enabled = false },
     { "catppuccin/nvim", enabled = false },
     { "iamcco/markdown-preview.nvim", enabled = false },
     { "MeanderingProgrammer/markdown.nvim", enabled = false },
