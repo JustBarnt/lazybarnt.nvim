@@ -39,6 +39,8 @@ local spec = {
     { "nvim-lualine/lualine.nvim", enabled = false },
     { "nvimdev/dashboard-nvim", enabled = false },
     { "ThePrimeagen/harpoon", enabled = false },
+    { "hrsh7th/nvim-cmp", enabled = false },
+    { "catppuccin/nvim", enabled = false },
     -- [[DISABLES]]
   },
   defaults = {
