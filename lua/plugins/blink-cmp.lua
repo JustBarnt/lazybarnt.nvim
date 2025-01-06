@@ -2,7 +2,7 @@ return {
   {
     "saghen/blink.cmp",
     event = { "InsertEnter", "CmdlineEnter" },
-    version = "v0.9.0",
+    version = "v0.9.*",
     ---@module "blink.cmp"
     ---@type blink.cmp.Config
     opts = {
