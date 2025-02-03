@@ -2,7 +2,6 @@ return {
   {
     "saghen/blink.cmp",
     event = { "InsertEnter", "CmdlineEnter" },
-    version = "v0.9.*",
     ---@module "blink.cmp"
     ---@type blink.cmp.Config
     opts = {
@@ -17,9 +16,14 @@ return {
         accept = { auto_brackets = { enabled = true } },
         ghost_text = { enabled = true },
         list = {
-          selection = function(ctx)
-            return ctx.mode == "cmdline" and "auto_insert" or "preselect"
-          end,
+          selection = {
+            auto_insert = function(ctx)
+              return ctx.mode ~= "cmdline"
+            end,
+            preselect = function(ctx)
+              return ctx.mode ~= "cmdline"
+            end,
+          },
         },
         menu = {
           enabled = true,

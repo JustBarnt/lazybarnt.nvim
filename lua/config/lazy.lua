@@ -31,15 +31,9 @@ local spec = {
 
     --[[DISABLES]]
     { "lukas-reineke/indent-blankline.nvim", enabled = false },
-    { "catppuccin/nvim", enabled = false },
     { "iamcco/markdown-preview.nvim", enabled = false },
     { "MeanderingProgrammer/markdown.nvim", enabled = false },
-    { "rafamadriz/friendly-snippets", enabled = false },
-    { "garymjr/nvim-snippets", enabled = false },
-    { "nvim-lualine/lualine.nvim", enabled = false },
-    { "nvimdev/dashboard-nvim", enabled = false },
-    { "ThePrimeagen/harpoon", enabled = false },
-    { "hrsh7th/nvim-cmp", enabled = false },
+    { "nvim-neo-tree/neo-tree.nvim", enabled = false },
     -- [[DISABLES]]
   },
   defaults = {

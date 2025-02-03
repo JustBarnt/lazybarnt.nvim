@@ -4,20 +4,36 @@ return {
   lazy = false,
   opts = {
     bigfile = { enabled = true },
-    dashboard = {
-      sections = {
-        { section = "header" },
-        { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
-        { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-        { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
-        { section = "startup" },
-      },
-    },
+    dashboard = { enabled = true },
+    explorer = {},
     indent = { enabled = true },
     input = { enabled = true },
     lazygit = { enabled = true },
     notifier = { enabled = true },
     notify = { enabled = true },
+    picker = {
+      ---@class snacks.picker.matcher.Config
+      matcher = {
+        frecency = true,
+      },
+      ---@class snacks.picker.formatters.Config
+      formatters = {
+        file = {
+          filename_first = true,
+        },
+      },
+      actions = {
+        flash = require("plugins.extras.picker").flash_on_picker,
+      },
+      win = {
+        input = {
+          keys = {
+            ["<a-s>"] = { "flash", mode = { "n", "i" } },
+            ["s"] = { "flash" },
+          },
+        },
+      },
+    },
     profiler = { enabled = true },
     quickfile = { enabled = true },
     scratch = { enabled = true },
@@ -27,5 +43,21 @@ return {
     terminal = { enabled = true },
     words = { enabled = true },
     zen = { enabled = true },
+  },
+  keys = {
+    {
+      "<leader>e",
+      function()
+        Snacks.explorer({ cwd = LazyVim.root() })
+      end,
+      desc = "Explorer Snacks (root dir)",
+    },
+    {
+      "<leader>E",
+      function()
+        Snacks.explorer()
+      end,
+      desc = "Explorer Snacks (cwd)",
+    },
   },
 }
