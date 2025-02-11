@@ -6,7 +6,7 @@ return {
     end,
   },
   {
-    "seblj/roslyn.nvim",
+    "seblyng/roslyn.nvim",
     ft = "cs",
     opts = function(_, opts)
       local blink = require("blink.cmp")
