@@ -46,9 +46,16 @@ return {
   },
   keys = {
     {
+      "<leader>fs",
+      function()
+        Snacks.picker.lsp_symbols({ layout = "vscode", preview = "main" })
+      end,
+      desc = "Symbols Finder (Snacks)",
+    },
+    {
       "<leader>e",
       function()
-        Snacks.explorer({ cwd = LazyVim.root() })
+        Snacks.explorer({ cwd = LazyVim.root(), exclude = { ".bin/**", "bin/**", "obj/**" } })
       end,
       desc = "Explorer Snacks (root dir)",
     },
