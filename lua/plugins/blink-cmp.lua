@@ -36,11 +36,12 @@ return {
             return { vim.o.lines - height, 0 }
           end,
           border = "rounded",
-          winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+          winhighlight =
+          "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
           draw = {
             columns = {
-              { "label", "label_description", gap = 1 },
-              { "kind_icon", "kind", gap = 1 },
+              { "label",     "label_description", gap = 1 },
+              { "kind_icon", "kind",              gap = 1 },
             },
           },
         },
@@ -51,18 +52,9 @@ return {
           treesitter_highlighting = true,
         },
       },
-      sources = {
-        default = function(ctx)
-          local success, node = pcall(vim.treesitter.get_node)
-          if vim.bo.filetype == "lua" then
-            return { "lsp", "path" }
-          elseif success and node and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type()) then
-            return { "buffer" }
-          else
-            return { "lsp", "path", "snippets", "buffer", "lazydev" }
-          end
-        end,
-        cmdline = function()
+      cmdline = {
+        enabled = true,
+        sources = function()
           local type = vim.fn.getcmdtype()
           if type == "/" or type == "?" then
             return { "buffer" }
@@ -71,6 +63,18 @@ return {
             return { "cmdline" }
           end
           return {}
+        end,
+      },
+      sources = {
+        default = function()
+          local success, node = pcall(vim.treesitter.get_node)
+          if vim.bo.filetype == "lua" then
+            return { "lsp", "path" }
+          elseif success and node and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type()) then
+            return { "buffer" }
+          else
+            return { "lsp", "path", "snippets", "buffer", "lazydev" }
+          end
         end,
         providers = {
           lazydev = {
