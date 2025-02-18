@@ -8,13 +8,6 @@ M.escape_pattern = function(pattern)
 end
 
 M.replace_word_under_cursor = function()
-  local has_dressing, _ = pcall(require, "dressing")
-
-  if not has_dressing then
-    vim.notify("`stevearc/dressing.nvim is missing. \r\nIt is required for this feature.`", vim.log.levels.WARN)
-    return
-  end
-
   local word = vim.fn.expand("<cword>")
   local prompt = "Replace: %s [%d]:"
   local cpos = vim.api.nvim_win_get_cursor(0)
