@@ -5,7 +5,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out,                            "WarningMsg" },
+      { out, "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -24,15 +24,15 @@ local spec = {
   spec = {
     "nvim-lua/plenary.nvim",
     -- add JustVi and import its plugins
-    { "justbarnt/JustVi",                    import = "justvi.plugins", opts = { colorscheme = "tokyonight" } },
+    { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "tokyonight" } },
     -- import/override with your plugins
     { import = "plugins" },
     { import = "plugins.lang" },
     --[[DISABLES]]
     { "lukas-reineke/indent-blankline.nvim", enabled = false },
-    { "iamcco/markdown-preview.nvim",        enabled = false },
-    { "MeanderingProgrammer/markdown.nvim",  enabled = false },
-    { "nvim-neo-tree/neo-tree.nvim",         enabled = false },
+    { "iamcco/markdown-preview.nvim", enabled = false },
+    { "MeanderingProgrammer/markdown.nvim", enabled = false },
+    { "nvim-neo-tree/neo-tree.nvim", enabled = false },
     -- [[DISABLES]]
   },
   defaults = {
@@ -48,7 +48,7 @@ local spec = {
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
-  },                -- automatically check for plugin updates
+  }, -- automatically check for plugin updates
   change_detection = {
     enabled = false,
   },

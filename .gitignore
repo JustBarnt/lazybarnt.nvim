@@ -1,4 +1,3 @@
-lazy-lock.json
 tt.*
 .tests
 doc/tags
@@ -8,4 +7,3 @@ foo.*
 *.log
 data
 lua/config/neovide.lua
-lazyvim.json
