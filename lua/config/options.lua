@@ -21,7 +21,7 @@ opt.swapfile = false
 opt.shada = "!,'100,<50,s10,h,rA:,rB:"
 
 -- if vim.fn.has("win32") == 1 then
---   JustVi.terminal.setup("nu")
+--   LazyVim.terminal.setup("nu")
 -- end
 
 vim.opt.sh = "cmd"

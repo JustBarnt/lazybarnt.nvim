@@ -31,7 +31,7 @@ return {
       table.insert(opts.linters, {
         selene = {
           condition = function(ctx)
-            local root = JustVi.root.get({ normalize = true })
+            local root = LazyVim.root.get({ normalize = true })
             if root ~= vim.uv.cwd() then
               return false
             end
@@ -40,7 +40,7 @@ return {
         },
         luacheck = {
           condition = function(ctx)
-            local root = JustVi.root.get({ normalize = true })
+            local root = LazyVim.root.get({ normalize = true })
             if root ~= vim.uv.cwd() then
               return false
             end

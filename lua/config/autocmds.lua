@@ -1,7 +1,7 @@
 local api = vim.api
 local set = vim.opt_local
 -- Autocmds are automatically loaded on the VeryLazy event
--- Default autocmds that are always set: https://github.com/JustVi/JustVi/blob/main/lua/lazyvim/config/autocmds.lua
+-- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
 api.nvim_create_autocmd({ "FileType" }, {
@@ -37,8 +37,31 @@ api.nvim_create_autocmd({ "LspAttach" }, {
 
     if client and client:supports_method("textDocument/foldingRange", buf) then
       vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+    else
+      vim.o.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
+    end
+  end,
+})
+
+api.nvim_create_autocmd("InsertLeave", {
+  pattern = "*",
+  callback = function()
+    local clients = vim.lsp.get_clients({ name = "roslyn" })
+    if not clients or #clients == 0 then
+      return
     end
 
+    local buffers = vim.lsp.get_buffers_by_client_id(clients[1].id)
+    for _, buf in ipairs(buffers) do
+      vim.lsp.util._refresh("textDocument/diagnostic", { bufnr = buf })
+    end
+  end,
+})
+
+api.nvim_create_autocmd({ "LspAttach" }, {
+  pattern = "*",
+  desc = "Attempt to use Roslyn's Capablities to use Semantic Token Highlighting",
+  callback = function(ev)
     --- @param client vim.lsp.Client the LSP client
     local function monkey_patch_semantic_tokens(client)
       -- NOTE: Super hacky... Don't know if I like that we set a random variable on
@@ -84,21 +107,6 @@ api.nvim_create_autocmd({ "LspAttach" }, {
 
     if client and client.name == "roslyn" then
       monkey_patch_semantic_tokens(client)
-    end
-  end,
-})
-
-api.nvim_create_autocmd("InsertLeave", {
-  pattern = "*",
-  callback = function()
-    local clients = vim.lsp.get_clients({ name = "roslyn" })
-    if not clients or #clients == 0 then
-      return
-    end
-
-    local buffers = vim.lsp.get_buffers_by_client_id(clients[1].id)
-    for _, buf in ipairs(buffers) do
-      vim.lsp.util._refresh("textDocument/diagnostic", { bufnr = buf })
     end
   end,
 })
