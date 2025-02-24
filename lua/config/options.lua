@@ -1,11 +1,11 @@
 vim.g.mapleader = " "
 
-vim.g.lazyvim_blink_main = false
+vim.g.justvi_blink_main = false
 vim.g.bigfile_size = 1024 * 1024 * 10
-vim.g.lazyvim_picker = "snacks"
-vim.g.lazyvim_php_lsp = "intelephense"
+vim.g.justvi_picker = "snacks"
+vim.g.justvi_php_lsp = "intelephense"
 vim.g.trouble_lualine = false
-vim.g.lazyvim_statuscolumn = {
+vim.g.justvi_statuscolumn = {
   folds_open = true,
   folds_githl = true,
 }
@@ -21,7 +21,7 @@ opt.swapfile = false
 opt.shada = "!,'100,<50,s10,h,rA:,rB:"
 
 -- if vim.fn.has("win32") == 1 then
---   LazyVim.terminal.setup("nu")
+--   JustVi.terminal.setup("nu")
 -- end
 
 vim.opt.sh = "cmd"

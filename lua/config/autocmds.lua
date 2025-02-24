@@ -1,7 +1,7 @@
 local api = vim.api
 local set = vim.opt_local
 -- Autocmds are automatically loaded on the VeryLazy event
--- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
+-- Default autocmds that are always set: https://github.com/JustVi/JustVi/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
 api.nvim_create_autocmd({ "FileType" }, {

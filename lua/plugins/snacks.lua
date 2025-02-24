@@ -55,7 +55,7 @@ return {
     {
       "<leader>e",
       function()
-        Snacks.explorer({ cwd = LazyVim.root(), exclude = { ".bin/**", "bin/**", "obj/**" } })
+        Snacks.explorer({ cwd = JustVi.root(), exclude = { ".bin/**", "bin/**", "obj/**" } })
       end,
       desc = "Explorer Snacks (root dir)",
     },
