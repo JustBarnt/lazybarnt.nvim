@@ -8,10 +8,8 @@ return {
     opts = {
       keymap = {
         preset = "default",
-        ["<C-j>"] = { "select_next", "accept" },
-        ["<C-k>"] = { "select_prev", "accept" },
-        ["Up"] = { "scroll_documentation_up" },
-        ["Down"] = { "scroll_documentation_down" },
+        ["Up"] = { "scroll_documentation_up", "fallback" },
+        ["Down"] = { "scroll_documentation_down", "fallback" },
       },
       completion = {
         accept = { auto_brackets = { enabled = true } },
@@ -37,12 +35,11 @@ return {
             return { vim.o.lines - height, 0 }
           end,
           border = "rounded",
-          winhighlight =
-          "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+          winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
           draw = {
             columns = {
-              { "label",     "label_description", gap = 1 },
-              { "kind_icon", "kind",              gap = 1 },
+              { "label", "label_description", gap = 1 },
+              { "kind_icon", "kind", gap = 1 },
             },
           },
         },
@@ -55,6 +52,10 @@ return {
       },
       cmdline = {
         enabled = true,
+        keymap = {
+          ["<CR>"] = { "accept_and_enter", "fallback" },
+        },
+        ---@diagnostic disable-next-line: assign-type-mismatch
         sources = function()
           local type = vim.fn.getcmdtype()
           if type == "/" or type == "?" then
@@ -65,6 +66,12 @@ return {
           end
           return {}
         end,
+        completion = {
+          trigger = {
+            show_on_blocked_trigger_characters = {},
+            show_on_x_blocked_trigger_characters = nil,
+          },
+        },
       },
       sources = {
         default = function()

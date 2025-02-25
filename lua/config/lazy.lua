@@ -15,11 +15,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local spec = {
-  dev = {
-    path = "D:/personal/nvim-plugins/",
-    patterns = { "justbarnt" },
-    fallback = true,
-  },
+  -- dev = {
+  --   path = "D:/personal/nvim-plugins/",
+  --   patterns = { "justbarnt" },
+  --   fallback = true,
+  -- },
   ---@Class LazySpecPlugin
   spec = {
     "nvim-lua/plenary.nvim",
