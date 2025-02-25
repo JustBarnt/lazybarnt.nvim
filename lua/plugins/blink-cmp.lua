@@ -10,6 +10,7 @@ return {
         preset = "default",
         ["Up"] = { "scroll_documentation_up", "fallback" },
         ["Down"] = { "scroll_documentation_down", "fallback" },
+        ["<CR>"] = { "select_and_accept", "fallback" },
       },
       completion = {
         accept = { auto_brackets = { enabled = true } },
