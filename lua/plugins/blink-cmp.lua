@@ -6,6 +6,9 @@ return {
     ---@module "blink.cmp"
     ---@type blink.cmp.Config
     opts = {
+      fuzzy = {
+        implementation = "prefer_rust",
+      },
       keymap = {
         preset = "default",
         ["Up"] = { "scroll_documentation_up", "fallback" },
