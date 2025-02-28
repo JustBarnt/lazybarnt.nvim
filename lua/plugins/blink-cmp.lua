@@ -70,6 +70,8 @@ return {
           return {}
         end,
         completion = {
+          menu = { auto_show = true },
+          ghost_text = { enabled = false },
           trigger = {
             show_on_blocked_trigger_characters = {},
             show_on_x_blocked_trigger_characters = nil,
