@@ -83,8 +83,8 @@ return {
           local success, node = pcall(vim.treesitter.get_node)
           if vim.bo.filetype == "lua" then
             return { "lsp", "path" }
-          elseif vim.bo.filetype == "cs" then
-            return { "lsp", "path", "easy-dotnet" }
+          -- elseif vim.bo.filetype == "cs" then
+          --   return { "lsp", "path", "easy-dotnet" }
           elseif success and node and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type()) then
             return { "buffer" }
           else
@@ -97,13 +97,13 @@ return {
             module = "lazydev.integrations.blink",
             score_offset = 100,
           },
-          ["easy-dotnet"] = {
-            name = "easy-dotnet",
-            enabled = true,
-            module = "easy-dotnet.completion.blink",
-            score_offset = 10000,
-            async = true,
-          },
+          -- ["easy-dotnet"] = {
+          --   name = "easy-dotnet",
+          --   enabled = true,
+          --   module = "easy-dotnet.completion.blink",
+          --   score_offset = 10000,
+          --   async = true,
+          -- },
         },
       },
 
