@@ -1,6 +1,5 @@
 return {
   "folke/snacks.nvim",
-  priority = 1000,
   lazy = false,
   opts = {
     bigfile = {
@@ -55,20 +54,6 @@ return {
         Snacks.picker.lsp_symbols({ layout = "vscode", preview = "main" })
       end,
       desc = "Symbols Finder (Snacks)",
-    },
-    {
-      "<leader>e",
-      function()
-        Snacks.explorer({ cwd = LazyVim.root(), exclude = { ".bin/**", "bin/**", "obj/**" } })
-      end,
-      desc = "Explorer Snacks (root dir)",
-    },
-    {
-      "<leader>E",
-      function()
-        Snacks.explorer()
-      end,
-      desc = "Explorer Snacks (cwd)",
     },
   },
 }

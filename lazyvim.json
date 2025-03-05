@@ -1,6 +1,5 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.editor.neo-tree",
     "lazyvim.plugins.extras.lang.clangd",
     "lazyvim.plugins.extras.lang.git",
     "lazyvim.plugins.extras.lang.go",
