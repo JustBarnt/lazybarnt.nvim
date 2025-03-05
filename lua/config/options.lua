@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
 vim.g.lazyvim_python_lsp = "basedpyright"
+vim.g.lazygit_config = true
 vim.g.bigfile_size = 1024 * 1024 * 10
 vim.g.lazyvim_picker = "snacks"
 vim.g.lazyvim_php_lsp = "intelephense"
