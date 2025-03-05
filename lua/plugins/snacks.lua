@@ -9,7 +9,7 @@ return {
       line_length = 1500,
     },
     dashboard = { enabled = true },
-    explorer = {},
+    explorer = { enabled = false },
     indent = { enabled = true },
     input = { enabled = true },
     lazygit = { enabled = true },
