@@ -20,6 +20,7 @@ opt.cmdheight = 0
 opt.scrolloff = 16
 opt.swapfile = false
 opt.shada = "!,'100,<50,s10,h,rA:,rB:"
+opt.formatoptions = "jncrql"
 
 -- if vim.fn.has("win32") == 1 then
 --   LazyVim.terminal.setup("nu")
