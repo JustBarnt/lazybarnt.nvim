@@ -7,9 +7,6 @@ return {
     ---@module "blink.cmp"
     ---@type blink.cmp.Config
     opts = {
-      snippets = {
-        preset = "luasnip",
-      },
       fuzzy = {
         implementation = "prefer_rust",
       },
@@ -94,7 +91,6 @@ return {
           end
         end,
         providers = {
-          snippets = { score_offset = 5 },
           lazydev = {
             name = "LazyDev",
             module = "lazydev.integrations.blink",
