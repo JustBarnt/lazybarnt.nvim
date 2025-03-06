@@ -2,10 +2,14 @@ return {
   {
     "saghen/blink.cmp",
     event = { "InsertEnter", "CmdlineEnter" },
+    version = "*",
     build = "cargo build --release",
     ---@module "blink.cmp"
     ---@type blink.cmp.Config
     opts = {
+      snippets = {
+        preset = "luasnip",
+      },
       fuzzy = {
         implementation = "prefer_rust",
       },
@@ -83,8 +87,6 @@ return {
           local success, node = pcall(vim.treesitter.get_node)
           if vim.bo.filetype == "lua" then
             return { "lsp", "path" }
-          -- elseif vim.bo.filetype == "cs" then
-          --   return { "lsp", "path", "easy-dotnet" }
           elseif success and node and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type()) then
             return { "buffer" }
           else
@@ -92,10 +94,19 @@ return {
           end
         end,
         providers = {
+          snippets = { score_offset = 5 },
           lazydev = {
             name = "LazyDev",
             module = "lazydev.integrations.blink",
             score_offset = 100,
+          },
+          path = {
+            score_offset = 2,
+            opts = {
+              get_cwd = function(_)
+                return vim.fn.getcwd()
+              end,
+            },
           },
           -- ["easy-dotnet"] = {
           --   name = "easy-dotnet",
